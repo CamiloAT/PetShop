@@ -16,5 +16,8 @@ public class PetServiceImpl implements PetService {
     @Autowired
     private PetRepository petRepository;
 
-   
+	@Override
+	public List<Pet> getPets(String category) {
+		return petRepository.getByCategory(category);
+	}
 }
