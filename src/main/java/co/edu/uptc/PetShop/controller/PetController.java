@@ -22,5 +22,9 @@ public class PetController {
     @Autowired
     private PetService petService;
 
-   
+    @DeleteMapping("delete/{id}")
+    public void deletePet(@PathVariable Long id) {
+        petService.deletePet(id);
+    }
+
 }

@@ -16,5 +16,9 @@ public class PetServiceImpl implements PetService {
     @Autowired
     private PetRepository petRepository;
 
+    @Override
+    public void deletePet(Long id) {
+        petRepository.deleteById(id);
+    }
    
 }
