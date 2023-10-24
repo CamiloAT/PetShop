@@ -22,33 +22,5 @@ public class PetController {
     @Autowired
     private PetService petService;
 
-    //Para obtener por categoría
-    @GetMapping("/by-category")
-    public List<Pet> getPetsByCategory(@RequestParam String category) {
-        return this.petService.getPetsByCategory(category);
-    }
-
-    //Para crear
-    @PostMapping("/")
-    public Pet createPet(@RequestBody Pet pet) {
-        return this.petService.createPet(pet);
-    }
-
-    //Para actualizar por ID
-    @PutMapping("/{id}")
-    public Pet updatePet(@PathVariable Long id, @RequestBody Pet pet) {
-        return this.petService.updatePet(id, pet);
-    }
-
-    //Para listar por Categoría
-    @GetMapping("/category/{category}")
-    public List<Pet> listPetsByCategory(@PathVariable String category) {
-        return null;
-    }
-
-    //Borrar alguna mascota que necesitemos
-    @DeleteMapping("/{id}")
-    public void deletePet(@PathVariable Long id) {
-        
-    }
+   
 }
