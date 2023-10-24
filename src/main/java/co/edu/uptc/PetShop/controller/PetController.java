@@ -22,7 +22,7 @@ public class PetController {
     @Autowired
     private PetService petService;
 
-   @GetMapping("")
+   @GetMapping("/list")
    public List<Pet> getPets(@RequestParam("category") String category){
 	   return petService.getPets(category);
    }
