@@ -6,6 +6,6 @@ import co.edu.uptc.PetShop.model.Pet;
 
 public interface PetService {
    
-
+	Pet savePet(Pet pet);
     
 }
