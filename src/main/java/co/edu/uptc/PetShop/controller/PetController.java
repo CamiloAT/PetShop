@@ -29,25 +29,10 @@ public class PetController {
     private PetService petService;
     private PetRepository petRepository;
 
-    public PetController(PetService petService){
-        this.petService = petService;
-
-    }
-    @PutMapping("update/{id}")
-    public Pet updatePet(@PathVariable Long id, @RequestBody Pet pet) throws NotFoundException{ 
-     Optional<Pet> existingPetOptional = petRepository.findById(id);
-        if (existingPetOptional.isPresent()) {
-            Pet existingPet = existingPetOptional.get();
-            existingPet.setName(pet.getName());
-            existingPet.setCategory(pet.getCategory());
-             petRepository.save(existingPet);
-             
-            return petRepository.save(existingPet);
-        } else {
-            throw new NotFoundException();
-        }
-    }
-
-
    
+    @PutMapping("update/{id}")
+    public Pet updatePet(@PathVariable Long id, @RequestBody Pet pet) {
+       return petService.updatePet(id, pet);
+    }
 }
+
