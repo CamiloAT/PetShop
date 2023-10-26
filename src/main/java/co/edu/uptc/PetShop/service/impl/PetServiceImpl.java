@@ -20,4 +20,15 @@ public class PetServiceImpl implements PetService {
 	public List<Pet> getPets(String category) {
 		return petRepository.getByCategory(category);
 	}
+
+    @Override
+    public void deletePet(Long id) {
+        petRepository.deleteById(id);
+    }
+	@Override
+	public Pet savePet(Pet pet) {
+		return petRepository.save(pet);
+	}
+
+
 }
