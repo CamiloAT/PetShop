@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.uptc.PetShop.model.Pet;
 import co.edu.uptc.PetShop.service.PetService;
 import co.edu.uptc.PetShop.service.impl.PetServiceImpl;
-import jakarta.validation.Valid;
 
 @RequestMapping("/pets")
 @RestController
@@ -26,12 +25,16 @@ import jakarta.validation.Valid;
 public class PetController {
     @Autowired
     private PetService petService;
-    
-    @PostMapping("save")
-    public ResponseEntity<Pet> savePet(@Valid @RequestBody Pet pet) {
-		Pet newPet = this.petService.savePet(pet);
-		return ResponseEntity.ok(newPet);
-	}
 
-   
+    @PostMapping("save")
+    public ResponseEntity<Pet> savePet(@RequestBody Pet pet) {
+        Pet newPet = this.petService.savePet(pet);
+        return ResponseEntity.ok(newPet);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public void deletePet(@PathVariable Long id) {
+        petService.deletePet(id);
+    }
+
 }
