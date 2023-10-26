@@ -9,12 +9,27 @@ import org.springframework.stereotype.Service;
 import co.edu.uptc.PetShop.model.Pet;
 import co.edu.uptc.PetShop.repository.PetRepository;
 import co.edu.uptc.PetShop.service.PetService;
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class PetServiceImpl implements PetService {
 
     @Autowired
     private PetRepository petRepository;
+
+
+    @Override
+    public Pet save(Pet pet) {
+        throw new UnsupportedOperationException("Unimplemented method 'savePet'");
+    }
+
+    @Override
+    public Pet updatePet(Long id, Pet pet) {
+        Pet petUpdate = petRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("No se encuentra la mascota"));
+        petUpdate.setName(petUpdate.getName());
+        petUpdate.setCategory(petUpdate.getCategory());
+        return petRepository.save(petUpdate);
+    }
 
 	@Override
 	public List<Pet> getPets(String category) {
