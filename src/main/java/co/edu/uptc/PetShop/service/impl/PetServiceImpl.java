@@ -20,5 +20,10 @@ public class PetServiceImpl implements PetService {
     public void deletePet(Long id) {
         petRepository.deleteById(id);
     }
+	@Override
+	public Pet savePet(Pet pet) {
+		return petRepository.save(pet);
+	}
+
    
 }

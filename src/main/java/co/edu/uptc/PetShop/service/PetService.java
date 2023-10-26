@@ -7,5 +7,7 @@ import co.edu.uptc.PetShop.model.Pet;
 public interface PetService {
     void deletePet(Long id);
 
+   
+	Pet savePet(Pet pet);
     
 }
