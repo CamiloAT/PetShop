@@ -17,7 +17,7 @@ public class PetServiceImpl implements PetService {
     @Autowired
     private PetRepository petRepository;
 
-<<<<<<< HEAD
+
     @Override
     public Pet save(Pet pet) {
         throw new UnsupportedOperationException("Unimplemented method 'savePet'");
@@ -30,12 +30,20 @@ public class PetServiceImpl implements PetService {
         petUpdate.setCategory(petUpdate.getCategory());
         return petRepository.save(petUpdate);
     }
-=======
+
+	@Override
+	public List<Pet> getPets(String category) {
+		return petRepository.getByCategory(category);
+	}
+
+    @Override
+    public void deletePet(Long id) {
+        petRepository.deleteById(id);
+    }
 	@Override
 	public Pet savePet(Pet pet) {
 		return petRepository.save(pet);
 	}
 
-   
->>>>>>> bb364983931f49fa9d9b6e1628a4e1639f5d5f5d
+
 }
