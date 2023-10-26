@@ -16,6 +16,11 @@ public class PetServiceImpl implements PetService {
     @Autowired
     private PetRepository petRepository;
 
+	@Override
+	public List<Pet> getPets(String category) {
+		return petRepository.getByCategory(category);
+	}
+
     @Override
     public void deletePet(Long id) {
         petRepository.deleteById(id);
@@ -25,5 +30,5 @@ public class PetServiceImpl implements PetService {
 		return petRepository.save(pet);
 	}
 
-   
+
 }

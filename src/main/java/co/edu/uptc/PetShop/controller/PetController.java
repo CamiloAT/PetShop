@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.uptc.PetShop.model.Pet;
@@ -26,6 +27,10 @@ public class PetController {
     @Autowired
     private PetService petService;
 
+   @GetMapping("/list")
+   public List<Pet> getPets(@RequestParam("category") String category){
+	   return petService.getPets(category);
+   }
     @PostMapping("save")
     public ResponseEntity<Pet> savePet(@RequestBody Pet pet) {
         Pet newPet = this.petService.savePet(pet);
@@ -36,5 +41,4 @@ public class PetController {
     public void deletePet(@PathVariable Long id) {
         petService.deletePet(id);
     }
-
 }
