@@ -16,5 +16,10 @@ public class PetServiceImpl implements PetService {
     @Autowired
     private PetRepository petRepository;
 
+	@Override
+	public Pet savePet(Pet pet) {
+		return petRepository.save(pet);
+	}
+
    
 }
