@@ -18,5 +18,5 @@ public interface PetService {
 
 	Pet savePet(Pet pet);
 
-    
+    String showPetDetails(long id);
 }

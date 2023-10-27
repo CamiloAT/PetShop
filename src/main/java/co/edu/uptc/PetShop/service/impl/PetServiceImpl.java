@@ -45,4 +45,11 @@ public class PetServiceImpl implements PetService {
 		return petRepository.save(pet);
 	}
 
+    @Override
+    public String showPetDetails(long id) {
+        Pet showDetail = petRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("No se encuentra la mascota"));
+        return showDetail.getId() + "\n" + showDetail.getName() + "\n" + showDetail.getCategory();
+    }
+
+
 }

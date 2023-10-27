@@ -56,5 +56,10 @@ public class PetController {
     public void deletePet(@PathVariable Long id) {
         petService.deletePet(id);
     }
+    @GetMapping("show/{id}")
+    public String showPetDetails(@PathVariable Long id) {
+        String petDetails = petService.showPetDetails(id);
+        return petDetails;
+    }
 }
 
