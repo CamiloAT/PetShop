@@ -44,8 +44,8 @@ public class PetController {
 	}
 
     @PutMapping("update/{id}")
-    public Pet updatePet(@PathVariable Long id, @RequestBody Pet pet) {
-       return petService.updatePet(id, pet);
+    public void updatePet(@PathVariable Long id, @RequestBody Pet pet) {
+        petService.updatePet(id, pet);
     }
    @GetMapping("/list")
    public List<Pet> getPets(@RequestParam("category") String category){
