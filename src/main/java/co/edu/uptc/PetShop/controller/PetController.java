@@ -1,5 +1,7 @@
 package co.edu.uptc.PetShop.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import co.edu.uptc.PetShop.model.Pet;
 import co.edu.uptc.PetShop.service.PetService;
 import co.edu.uptc.PetShop.service.impl.PetServiceImpl;
+import co.edu.uptc.view.Dashboard;
 import jakarta.validation.Valid;
 
 @RequestMapping("/pets")
@@ -27,11 +30,17 @@ public class PetController {
     @Autowired
     private PetService petService;
     
+    
     @PostMapping("save")
     public ResponseEntity<Pet> savePet(@Valid @RequestBody Pet pet) {
 		Pet newPet = this.petService.savePet(pet);
 		return ResponseEntity.ok(newPet);
 	}
 
+
+	
+	}
+    
+
    
-}
+
