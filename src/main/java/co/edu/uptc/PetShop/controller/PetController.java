@@ -1,6 +1,8 @@
 package co.edu.uptc.PetShop.controller;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +43,6 @@ public class PetController {
 		return ResponseEntity.ok(newPet);
 	}
 
-
     @PutMapping("update/{id}")
     public void updatePet(@PathVariable Long id, @RequestBody Pet pet) {
         petService.updatePet(id, pet);
@@ -61,8 +62,5 @@ public class PetController {
         return petDetails;
     }
 }
-
-
-	
 
 
