@@ -13,7 +13,7 @@ public class ListPets extends JPanel {
 
     private static final long serialVersionUID = 1L;
 	private JLabel categoryLabel;
-    private JTextField categoryField;
+    private JComboBox categoryField;
     private ButtonDefault listButton;
     private JTable petsTable;
     private DefaultTableModel tableModel;
@@ -40,7 +40,7 @@ public class ListPets extends JPanel {
         categoryLabel = new JLabel("Ingrese la categoria de la mascota a buscar");
         add(categoryLabel, constraints);
         constraints.gridx = 1;
-        categoryField = new JTextField(20);
+        categoryField =  new JComboBox(new String[] { "Gato", "Perro", "Ave", "Conejo"});
         add(categoryField, constraints);
 
         constraints.gridx = 0;
@@ -77,6 +77,6 @@ public class ListPets extends JPanel {
 	}
     
     public String getCategoryList() {
-    	return categoryField.getText();
+    	 return (String) categoryField.getSelectedItem();
     }
 }

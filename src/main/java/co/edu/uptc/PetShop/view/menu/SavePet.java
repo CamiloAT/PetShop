@@ -66,7 +66,7 @@ public class SavePet extends JPanel {
         selectCategory = new JLabel("Seleccione Una Categoria");
         add(selectCategory, constraints);
         constraints.gridx = 1;
-        category = new JComboBox(new String[] { "Gato", "Perro", "Ave", });
+        category = new JComboBox(new String[] { "Gato", "Perro", "Ave", "Conejo"});
         add(category, constraints);
         constraints.gridy = 2;
         constraints.gridwidth = 2;
