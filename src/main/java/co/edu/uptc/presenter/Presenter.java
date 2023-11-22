@@ -9,9 +9,9 @@ import co.edu.uptc.view.Dashboard;
 
 public class Presenter implements ActionListener {
 	
-	private Dashboard dashBoard;
+	private Dashboard dashboard;
 	public Presenter() {
-		dashBoard = new Dashboard(this);
+		dashboard = new Dashboard(this);
 	}
 
 	@Override
@@ -19,15 +19,18 @@ public class Presenter implements ActionListener {
 		String source = e.getActionCommand();
 		switch (source) {
 		case "save":
-			HttpDemand save= new HttpDemand();
-			save.requestSave(new Pet(dashBoard.getName(),dashBoard.getCategory()));	
-			dashBoard.setMessage(save.getMessage());
+			this.requestSave();
 			break;
 
 		default:
 			break;
 		}
 	}
+    public void requestSave(){
+    	HttpDemand save= new HttpDemand();
+		save.requestSave(new Pet(dashboard.getName(),dashboard.getCategory()));	
+		dashboard.setMessage(save.getMessage());
+    }
 
 	public static void main(String[] args) {
 		new Presenter();
