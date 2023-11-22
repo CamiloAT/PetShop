@@ -1,10 +1,9 @@
 package co.edu.uptc.PetShop.presenter;
 
-import co.edu.uptc.PetShop.model.Pet;
 import co.edu.uptc.PetShop.requests.DeleteRequest;
+import co.edu.uptc.PetShop.requests.ListRequest;
 import co.edu.uptc.PetShop.requests.SaveRequest;
 import co.edu.uptc.PetShop.view.Dashboard;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,6 +26,9 @@ public class Presenter implements ActionListener{
 		case "save":
 			this.requestSave();
 			break;
+		case "List":
+			this.requestList();
+			break;
 		default:
 
 			break;
@@ -34,7 +36,6 @@ public class Presenter implements ActionListener{
 	}
 	public void requestSave(){
     	SaveRequest save= new SaveRequest();
-		save.requestSave(new Pet(dashboard.getName(),dashboard.getCategory()));	
 		dashboard.setMessage(save.getMessage());
     }
 
@@ -43,6 +44,11 @@ public class Presenter implements ActionListener{
         deleteRequest.setMessage();
     }
 
+    private void requestList() {
+    	ListRequest list = new ListRequest(dashboard.getCategoryList());
+		dashboard.fillListTable(list.getPets());
+    }
+    
     public static void main(String[] args) {
         new Presenter();
     }

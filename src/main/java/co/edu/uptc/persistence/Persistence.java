@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 import co.edu.uptc.PetShop.model.Pet;
 import com.google.gson.Gson;
@@ -19,5 +20,12 @@ public class Persistence {
         Type userListType = new TypeToken<ArrayList<Pet>>() {}.getType();
         ArrayList<Pet> pets = new Gson().fromJson(reader, userListType);
         return pets;
+    }
+    
+    public List<Pet> convertJsonToPetList(String jsonString) {
+        Gson gson = new Gson();
+        Type petListType = new TypeToken<List<Pet>>(){}.getType();
+        List<Pet> petList = gson.fromJson(jsonString, petListType);
+        return petList;
     }
 }
