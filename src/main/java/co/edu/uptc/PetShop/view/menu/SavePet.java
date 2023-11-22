@@ -47,10 +47,8 @@ public class SavePet extends JPanel {
             @Override
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
-                for (int i = 0; i < 65; i++) {
-                    if (c == i) {
-                        e.consume();
-                    }
+                if (!(Character.isLetter(c))) {
+                    e.consume();
                 }
             }
 
