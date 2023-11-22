@@ -8,8 +8,9 @@ import java.awt.event.MouseListener;
 public class MainMenu extends JMenuBar {
 	private MyMenuItem create;
 	private MyMenuItem delete;
-	private MyMenuItem search;
 	private MyMenuItem list;
+	private MyMenuItem update;
+
 	private Dashboard dashBoard;
 
 	public MainMenu(Dashboard dashBoard) {
@@ -118,9 +119,9 @@ public class MainMenu extends JMenuBar {
 	}
 
 	public void initSearch() {
-		search = new MyMenuItem("Buscar Libro");
-		this.add(search);
-		search.addMouseListener(new MouseListener() {
+		update = new MyMenuItem("Actualizar");
+		this.add(update);
+		update.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dashBoard.visibleSearchMenu();
@@ -146,5 +147,6 @@ public class MainMenu extends JMenuBar {
 
 			}
 		});
+
 	}
 }

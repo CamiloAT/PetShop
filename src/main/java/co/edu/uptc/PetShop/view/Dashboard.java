@@ -18,7 +18,7 @@ public class Dashboard extends JFrame {
 	private Dimension dimension;
 	private SavePet savePet;
 	private DeletePet deleteBook;
-	private SearchBook searchBook;
+	private UpdatePet updatePet;
 	private ListBooks listBooks;
 	private MainMenu mainMenu;
 
@@ -38,7 +38,7 @@ public class Dashboard extends JFrame {
 		savePet = new SavePet(listener);
 		getContentPane().add(savePet);
 		deleteBook = new DeletePet(listener);
-		searchBook = new SearchBook(listener);
+		updatePet = new UpdatePet(listener);
 		listBooks = new ListBooks(listener);
 
 	}
@@ -46,14 +46,14 @@ public class Dashboard extends JFrame {
 	public void visibleDeleteMenu() {
 		getContentPane().add(deleteBook);
 		deleteBook.setVisible(true);
-		searchBook.setVisible(false);
+		updatePet.setVisible(false);
 		listBooks.setVisible(false);
 		savePet.setVisible(false);
 	}
 
 	public void visibleSearchMenu() {
-		getContentPane().add(searchBook);
-		searchBook.setVisible(true);
+		getContentPane().add(updatePet);
+		updatePet.setVisible(true);
 		savePet.setVisible(false);
 		deleteBook.setVisible(false);
 		listBooks.setVisible(false);
@@ -65,7 +65,7 @@ public class Dashboard extends JFrame {
 		listBooks.setVisible(true);
 		savePet.setVisible(false);
 		deleteBook.setVisible(false);
-		searchBook.setVisible(false);
+		updatePet.setVisible(false);
 
 	}
 
@@ -74,7 +74,7 @@ public class Dashboard extends JFrame {
 		savePet.deleteMessage();
 		listBooks.setVisible(false);
 		deleteBook.setVisible(false);
-		searchBook.setVisible(false);
+		updatePet.setVisible(false);
 	}
 
 	public String getIdPetDelete() {
@@ -103,5 +103,9 @@ public class Dashboard extends JFrame {
 
 	public String getCategoryList() {
 		return listBooks.getCategoryList();
+	}
+
+	public UpdatePet getUpdatePet() {
+		return updatePet;
 	}
 }

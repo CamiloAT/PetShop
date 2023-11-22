@@ -2,17 +2,22 @@ package co.edu.uptc.PetShop.presenter;
 import co.edu.uptc.PetShop.requests.DeleteRequest;
 import co.edu.uptc.PetShop.requests.ListRequest;
 import co.edu.uptc.PetShop.requests.SaveRequest;
+import co.edu.uptc.PetShop.requests.UpdateRequest;
 import co.edu.uptc.PetShop.view.Dashboard;
+import org.hibernate.sql.Update;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Presenter implements ActionListener {
 	private Dashboard dashboard;
 	private DeleteRequest deleteRequest;
+	private UpdateRequest updateRequest;
 
 	public Presenter() {
 		dashboard = new Dashboard(this);
 		deleteRequest = new DeleteRequest();
+		updateRequest = new UpdateRequest();
 	}
 
 	@Override
@@ -27,6 +32,9 @@ public class Presenter implements ActionListener {
 				break;
 			case "List":
 				this.requestList();
+				break;
+				case "update":
+				this.requestUpdate();
 				break;
 			default:
 
@@ -50,6 +58,12 @@ public class Presenter implements ActionListener {
 		ListRequest list = new ListRequest(dashboard.getCategoryList());
 		dashboard.fillListTable(list.getPets());
 	}
+
+	public void requestUpdate(){
+		updateRequest.requestUpdate(dashboard.getUpdatePet().getInputId(),dashboard.getUpdatePet().getInputName(),dashboard.getUpdatePet().getCategory());
+		dashboard.setMessage(updateRequest.getMessage());
+	}
+
 
 	public static void main(String[] args) {
 		new Presenter();
