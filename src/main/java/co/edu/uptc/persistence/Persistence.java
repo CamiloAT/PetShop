@@ -16,10 +16,8 @@ public class Persistence {
 
     public ArrayList<Pet> readMyFile(String file) throws FileNotFoundException {
         JsonReader reader = new Gson().newJsonReader(new FileReader(file));
-
         Type userListType = new TypeToken<ArrayList<Pet>>() {}.getType();
         ArrayList<Pet> pets = new Gson().fromJson(reader, userListType);
-
         return pets;
     }
 }

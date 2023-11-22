@@ -28,6 +28,7 @@ public class SavePet extends JPanel {
     private JTextField name;
     private JLabel selectCategory;
     private JComboBox category;
+    private JLabel lblMessage;
     private ButtonDefault save;
 
     public SavePet(ActionListener listener) {
@@ -43,6 +44,7 @@ public class SavePet extends JPanel {
         lblName = new JLabel("Ingrese Nombre De La Mascota: ");
         add(lblName, constraints);
         constraints.gridx = 1;
+        constraints.gridy = 0;
         name = new JTextField(20);
         add(name, constraints);
         name.addKeyListener(new KeyListener() {
@@ -64,13 +66,13 @@ public class SavePet extends JPanel {
         });
 
         constraints.gridx = 0;
-        constraints.gridy = 2;
+        constraints.gridy = 1;
         selectCategory = new JLabel("Seleccione Una Categoria");
         add(selectCategory, constraints);
         constraints.gridx = 1;
         category = new JComboBox(new String[]{"Gato", "Perro", "Ave",});
         add(category, constraints);
-        constraints.gridy = 3;
+        constraints.gridy = 2;
         constraints.gridwidth = 2;
         save = new ButtonDefault("Guardar Mascota");
         save.setActionCommand("save");
@@ -85,6 +87,11 @@ public class SavePet extends JPanel {
                 }
             }
         });
+
+        constraints.gridy = 3;
+        lblMessage= new JLabel();
+        add(lblMessage,constraints);
+        
     }
 
     public String getName() {
@@ -93,6 +100,9 @@ public class SavePet extends JPanel {
 
     public String getCategory() {
         return (String) category.getSelectedItem();
+    }
+    public void setMessage(String message) {
+    	lblMessage.setText(message);
     }
 
 

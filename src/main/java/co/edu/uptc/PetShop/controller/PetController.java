@@ -29,8 +29,7 @@ import jakarta.validation.Valid;
 public class PetController {
     @Autowired
     private PetService petService;
-    
-    
+   
     @PostMapping("save")
     public ResponseEntity<Pet> savePet(@Valid @RequestBody Pet pet) {
 		Pet newPet = this.petService.savePet(pet);

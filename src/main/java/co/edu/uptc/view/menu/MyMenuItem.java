@@ -21,7 +21,7 @@ public class MyMenuItem extends JMenu implements MouseListener{
         this.setForeground(Color.white);
         this.setHorizontalTextPosition(this.CENTER);
         setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
-        setPreferredSize(new Dimension(dimension.width/4,40));
+        setPreferredSize(new Dimension(dimension.width/5,40));
         addMouseListener(this);
         setColor(new Color(25, 23, 23));
     }

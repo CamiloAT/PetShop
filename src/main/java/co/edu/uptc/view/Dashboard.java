@@ -32,7 +32,6 @@ public class Dashboard extends JFrame {
         setJMenuBar(mainMenu);
         savePet = new SavePet(listener);
         getContentPane().add(savePet);
-
         deleteBook = new DeleteBook(listener);
         searchBook = new SearchBook(listener);
         listBooks = new ListBooks();
@@ -67,21 +66,17 @@ public class Dashboard extends JFrame {
         searchBook.setVisible(false);
     }
 
-    public SavePet getCreateBook() {
-        return savePet;
-    }
-
-    public ListBooks getListBooks() {
-        return listBooks;
-    }
+   
     public String getName() {
         return savePet.getName();
     }
 
-    public String getCampus() {
+    public String getCategory() {
         return savePet.getCategory();
     }
-    public static void main(String[] args) {
-		new Dashboard(null);
-	}
+    public void setMessage(String message) {
+    	savePet.setMessage(message);
+    }
+
+   
 }

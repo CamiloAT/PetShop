@@ -25,7 +25,7 @@ public class MainMenu extends JMenuBar {
     }
 
     public void initCreate(){
-        create = new MyMenuItem("Crear Libro");
+        create = new MyMenuItem("Guardar Mascota");
         this.add(create);
         create.addMouseListener(new MouseListener() {
             @Override
