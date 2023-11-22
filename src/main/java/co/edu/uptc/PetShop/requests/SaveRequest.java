@@ -2,8 +2,6 @@ package co.edu.uptc.PetShop.requests;
 
 import co.edu.uptc.PetShop.model.Pet;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,10 +12,13 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class SaveRequest {
 	private HttpURLConnection connection;
 	private URL url;
 	private String message;
+
 	public void connect() {
 		try {
 			url = new URL("http://localhost:8080/pets/save");
@@ -35,10 +36,13 @@ public class SaveRequest {
 
 	}
 
-	public void requestSave(Pet petToSend) {
+	public void requestSave(String name, String category) {
 		connect();
 		try (OutputStream os = connection.getOutputStream()) {
 			ObjectMapper objectMapper = new ObjectMapper();
+			Pet petToSend = new Pet();
+			petToSend.setName(name);
+			petToSend.setCategory(category);
 			String requestBody = objectMapper.writeValueAsString(petToSend);
 			byte[] input = requestBody.getBytes(StandardCharsets.UTF_8);
 			os.write(input, 0, input.length);
@@ -49,10 +53,10 @@ public class SaveRequest {
 				while ((line = reader.readLine()) != null) {
 					response.append(line);
 				}
-				message="Mascota guardada exitosamente";
+				message = "Mascota guardada exitosamente";
 				reader.close();
 			} else {
-				message="Algo fallo!";
+				message = "Algo fallo!";
 				throw new Exception("Error en la petición");
 			}
 		} catch (Exception e) {
@@ -62,5 +66,6 @@ public class SaveRequest {
 	}
 
 	public String getMessage() {
-		return message;}	
+		return message;
+	}
 }

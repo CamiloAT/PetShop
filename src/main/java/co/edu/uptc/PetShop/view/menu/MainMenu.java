@@ -87,7 +87,7 @@ public class MainMenu extends JMenuBar {
 	}
 
 	public void initList() {
-		list = new MyMenuItem("listar Libros");
+		list = new MyMenuItem("Listar Mascotas");
 		this.add(list);
 		list.addMouseListener(new MouseListener() {
 			@Override

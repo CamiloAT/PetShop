@@ -7,17 +7,13 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Iterator;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import co.edu.uptc.view.myComponents.ButtonDefault;
@@ -52,14 +48,16 @@ public class SavePet extends JPanel {
             public void keyTyped(KeyEvent e) {
                 char c = e.getKeyChar();
                 for (int i = 0; i < 65; i++) {
-                	if ( c==i) {
+                    if (c == i) {
                         e.consume();
                     }
-				}
+                }
             }
+
             @Override
             public void keyPressed(KeyEvent e) {
             }
+
             @Override
             public void keyReleased(KeyEvent e) {
             }
@@ -70,7 +68,7 @@ public class SavePet extends JPanel {
         selectCategory = new JLabel("Seleccione Una Categoria");
         add(selectCategory, constraints);
         constraints.gridx = 1;
-        category = new JComboBox(new String[]{"Gato", "Perro", "Ave",});
+        category = new JComboBox(new String[] { "Gato", "Perro", "Ave", });
         add(category, constraints);
         constraints.gridy = 2;
         constraints.gridwidth = 2;
@@ -83,15 +81,16 @@ public class SavePet extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 String titleText = name.getText().trim();
                 if (titleText.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Por favor Ingrese un nombre", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Por favor Ingrese un nombre", "Error",
+                            JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
 
         constraints.gridy = 3;
-        lblMessage= new JLabel();
-        add(lblMessage,constraints);
-        
+        lblMessage = new JLabel();
+        add(lblMessage, constraints);
+
     }
 
     public String getName() {
@@ -101,10 +100,13 @@ public class SavePet extends JPanel {
     public String getCategory() {
         return (String) category.getSelectedItem();
     }
+
     public void setMessage(String message) {
-    	lblMessage.setText(message);
+        lblMessage.setText(message);
     }
 
-
+    public void deleteMessage() {
+        lblMessage.setText("");
+    }
 
 }

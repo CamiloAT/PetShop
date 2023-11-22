@@ -20,7 +20,15 @@ public class Pet {
     @Column
     private String category;
 
-	public Long getId() {
+    
+
+
+    // public Pet(String name, String category) {
+    //     this.name = name;
+    //     this.category = category;
+    // }
+
+    public Long getId() {
         return id;
     }
 

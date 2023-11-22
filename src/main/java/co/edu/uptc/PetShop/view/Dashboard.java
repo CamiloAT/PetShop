@@ -71,6 +71,7 @@ public class Dashboard extends JFrame {
 
 	public void visibleCreateMenu() {
 		savePet.setVisible(true);
+		savePet.deleteMessage();
 		listBooks.setVisible(false);
 		deleteBook.setVisible(false);
 		searchBook.setVisible(false);
@@ -95,12 +96,12 @@ public class Dashboard extends JFrame {
 	public void setMessage(String message) {
 		savePet.setMessage(message);
 	}
-	
-    public void fillListTable(List<Pet> pets) {
-    	listBooks.fillTable(pets);
-    }
-    
-    public String getCategoryList() {
-    	return listBooks.getCategoryList();
-    }
+
+	public void fillListTable(List<Pet> pets) {
+		listBooks.fillTable(pets);
+	}
+
+	public String getCategoryList() {
+		return listBooks.getCategoryList();
+	}
 }
