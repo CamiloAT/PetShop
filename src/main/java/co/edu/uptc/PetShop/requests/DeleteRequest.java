@@ -15,13 +15,13 @@ public class DeleteRequest {
 
     public String requestDelete(String idPet){
         try {
-            url = new URL ("http://localhost:8080/pets/" + idPet);
+            url = new URL ("http://localhost:8080/pets/delete/" + idPet);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("DELETE");
             int reponseCode = connection.getResponseCode();
 
             if (reponseCode == HttpURLConnection.HTTP_OK){
-                message = "Exitoso";
+                message = "Exitoso, eliminado o no encontrado.";
             }
 
         } catch (MalformedURLException e) {
