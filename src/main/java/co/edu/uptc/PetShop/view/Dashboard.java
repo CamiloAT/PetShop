@@ -1,15 +1,13 @@
 package co.edu.uptc.PetShop.view;
 
-import javax.swing.*;
 import co.edu.uptc.PetShop.view.menu.*;
-import java.awt.*;
+
 import java.awt.event.ActionListener;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import co.edu.uptc.PetShop.model.Pet;
 
@@ -19,8 +17,10 @@ public class Dashboard extends JFrame {
 	private SavePet savePet;
 	private DeletePet deleteBook;
 	private UpdatePet updatePet;
-	private ListBooks listBooks;
+	private ListPets listPets;
+	private ShowDetails showDetails;
 	private MainMenu mainMenu;
+
 
 	public Dashboard(ActionListener listener) {
 		toolkit = Toolkit.getDefaultToolkit();
@@ -39,16 +39,17 @@ public class Dashboard extends JFrame {
 		getContentPane().add(savePet);
 		deleteBook = new DeletePet(listener);
 		updatePet = new UpdatePet(listener);
-		listBooks = new ListBooks(listener);
-
+		listPets = new ListPets(listener);
+		showDetails = new ShowDetails(listener);
 	}
 
 	public void visibleDeleteMenu() {
 		getContentPane().add(deleteBook);
 		deleteBook.setVisible(true);
 		updatePet.setVisible(false);
-		listBooks.setVisible(false);
+		listPets.setVisible(false);
 		savePet.setVisible(false);
+		showDetails.setVisible(false);
 	}
 
 	public void visibleSearchMenu() {
@@ -56,25 +57,38 @@ public class Dashboard extends JFrame {
 		updatePet.setVisible(true);
 		savePet.setVisible(false);
 		deleteBook.setVisible(false);
-		listBooks.setVisible(false);
-
+		listPets.setVisible(false);
+		showDetails.setVisible(false);
 	}
 
 	public void visibleListMenu() {
-		getContentPane().add(listBooks);
-		listBooks.setVisible(true);
+		getContentPane().add(listPets);
+		listPets.setVisible(true);
 		savePet.setVisible(false);
 		deleteBook.setVisible(false);
 		updatePet.setVisible(false);
-
+		showDetails.setVisible(false);
 	}
 
+	public void visibleShowMenu() {
+		getContentPane().add(showDetails);
+		showDetails.setVisible(true);
+		listPets.setVisible(false);
+		deleteBook.setVisible(false);
+		updatePet.setVisible(false);
+		savePet.setVisible(false);
+	}
 	public void visibleCreateMenu() {
 		savePet.setVisible(true);
 		savePet.deleteMessage();
-		listBooks.setVisible(false);
+		listPets.setVisible(false);
 		deleteBook.setVisible(false);
 		updatePet.setVisible(false);
+		showDetails.setVisible(false);
+	}
+
+	public ShowDetails getShowDetails() {
+		return showDetails;
 	}
 
 	public String getIdPetDelete() {
@@ -98,14 +112,17 @@ public class Dashboard extends JFrame {
 	}
 
 	public void fillListTable(List<Pet> pets) {
-		listBooks.fillTable(pets);
+		listPets.fillTable(pets);
 	}
 
 	public String getCategoryList() {
-		return listBooks.getCategoryList();
+		return listPets.getCategoryList();
 	}
 
 	public UpdatePet getUpdatePet() {
 		return updatePet;
+	}
+	public static void showMessage(String message) {
+		JOptionPane.showMessageDialog(null, "Detalles mascota: " + message, "Detalles Mascota ", JOptionPane.INFORMATION_MESSAGE);
 	}
 }

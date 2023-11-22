@@ -10,6 +10,7 @@ public class MainMenu extends JMenuBar {
 	private MyMenuItem delete;
 	private MyMenuItem list;
 	private MyMenuItem update;
+	private MyMenuItem show;
 
 	private Dashboard dashBoard;
 
@@ -23,6 +24,7 @@ public class MainMenu extends JMenuBar {
 		initDelete();
 		initSearch();
 		initList();
+		initShows();
 	}
 
 	public void initCreate() {
@@ -32,6 +34,36 @@ public class MainMenu extends JMenuBar {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				dashBoard.visibleCreateMenu();
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+
+			}
+		});
+	}
+	public void initShows() {
+		show = new MyMenuItem("Mostrar Detalles Mascota");
+		this.add(show);
+		show.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dashBoard.visibleShowMenu();
 			}
 
 			@Override

@@ -9,8 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-public class ListBooks extends JPanel {
-	
+public class ListPets extends JPanel {
+
     private static final long serialVersionUID = 1L;
 	private JLabel categoryLabel;
     private JTextField categoryField;
@@ -19,7 +19,7 @@ public class ListBooks extends JPanel {
     private DefaultTableModel tableModel;
     private String[]column;
 
-    public ListBooks(ActionListener listener) {
+    public ListPets(ActionListener listener) {
         setBackground(new Color(241, 239, 239));
         this.column = new String[]{"ID", "Nombre", "Categoria"};
 		this.tableModel = new DefaultTableModel();
