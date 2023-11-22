@@ -1,82 +1,90 @@
 package co.edu.uptc.PetShop.view;
 
 import javax.swing.*;
-
 import co.edu.uptc.PetShop.view.menu.*;
-
 import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class Dashboard extends JFrame {
-    private Toolkit toolkit;
-    private Dimension dimension;
-    private CreateBook createBook;
-    private DeletePet deleteBook;
-    private SearchBook searchBook;
-    private ListBooks listBooks;
-    private MainMenu mainMenu;
-    public Dashboard(ActionListener listener){
-        toolkit = Toolkit.getDefaultToolkit();
-        dimension = toolkit.getScreenSize();
-        initPanels(listener);
-        setSize(dimension);
-        setResizable(false);
-        setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-    public void initPanels(ActionListener listener){
-        mainMenu = new MainMenu(this);
-        setJMenuBar(mainMenu);
-        createBook = new CreateBook(listener);
-        getContentPane().add(createBook);
+	private Toolkit toolkit;
+	private Dimension dimension;
+	private SavePet savePet;
+	private DeletePet deleteBook;
+	private SearchBook searchBook;
+	private ListBooks listBooks;
+	private MainMenu mainMenu;
 
-        deleteBook = new DeletePet(listener);
-        searchBook = new SearchBook(listener);
-        listBooks = new ListBooks();
+	public Dashboard(ActionListener listener) {
+		toolkit = Toolkit.getDefaultToolkit();
+		dimension = toolkit.getScreenSize();
+		initPanels(listener);
+		setSize(dimension);
+		setResizable(false);
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
 
-    }
-    public void visibleDeleteMenu(){
-        getContentPane().add(deleteBook);
-        deleteBook.setVisible(true);
-        searchBook.setVisible(false);
-        listBooks.setVisible(false);
-        createBook.setVisible(false);
-    }
-    public void visibleSearchMenu(){
-        getContentPane().add(searchBook);
-        searchBook.setVisible(true);
-        createBook.setVisible(false);
-        deleteBook.setVisible(false);
-        listBooks.setVisible(false);
+	public void initPanels(ActionListener listener) {
+		mainMenu = new MainMenu(this);
+		setJMenuBar(mainMenu);
+		savePet = new SavePet(listener);
+		getContentPane().add(savePet);
+		deleteBook = new DeletePet(listener);
+		searchBook = new SearchBook(listener);
+		listBooks = new ListBooks();
 
-    } public void visibleListMenu(){
-        getContentPane().add(listBooks);
-        listBooks.setVisible(true);
-        createBook.setVisible(false);
-        deleteBook.setVisible(false);
-        searchBook.setVisible(false);
+	}
 
-    }
-    public void visibleCreateMenu(){
-        createBook.setVisible(true);
-        listBooks.setVisible(false);
-        deleteBook.setVisible(false);
-        searchBook.setVisible(false);
-    }
+	public void visibleDeleteMenu() {
+		getContentPane().add(deleteBook);
+		deleteBook.setVisible(true);
+		searchBook.setVisible(false);
+		listBooks.setVisible(false);
+		savePet.setVisible(false);
+	}
 
-    public String getIdPetDelete(){
-        return deleteBook.getIdPetDelete();
-    }
+	public void visibleSearchMenu() {
+		getContentPane().add(searchBook);
+		searchBook.setVisible(true);
+		savePet.setVisible(false);
+		deleteBook.setVisible(false);
+		listBooks.setVisible(false);
 
-    public void setInfRequestDelete(String message){
-        deleteBook.setInfRequestDelete(message);
-    }
+	}
 
-    public CreateBook getCreateBook() {
-        return createBook;
-    }
+	public void visibleListMenu() {
+		getContentPane().add(listBooks);
+		listBooks.setVisible(true);
+		savePet.setVisible(false);
+		deleteBook.setVisible(false);
+		searchBook.setVisible(false);
 
-    public ListBooks getListBooks() {
-        return listBooks;
-    }
+	}
+
+	public void visibleCreateMenu() {
+		savePet.setVisible(true);
+		listBooks.setVisible(false);
+		deleteBook.setVisible(false);
+		searchBook.setVisible(false);
+	}
+
+	public String getIdPetDelete() {
+		return deleteBook.getIdPetDelete();
+	}
+
+	public void setInfRequestDelete(String message) {
+		deleteBook.setInfRequestDelete(message);
+	}
+
+	public String getName() {
+		return savePet.getName();
+	}
+
+	public String getCategory() {
+		return savePet.getCategory();
+	}
+
+	public void setMessage(String message) {
+		savePet.setMessage(message);
+	}
 }

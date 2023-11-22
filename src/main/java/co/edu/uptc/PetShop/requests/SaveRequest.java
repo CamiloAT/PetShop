@@ -1,4 +1,4 @@
-package co.edu.uptc.request;
+package co.edu.uptc.PetShop.requests;
 
 import co.edu.uptc.PetShop.model.Pet;
 
@@ -14,7 +14,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class HttpDemand {
+public class SaveRequest {
 	private HttpURLConnection connection;
 	private URL url;
 	private String message;

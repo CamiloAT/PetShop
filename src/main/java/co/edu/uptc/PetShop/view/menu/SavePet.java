@@ -1,4 +1,4 @@
-package co.edu.uptc.view.menu;
+package co.edu.uptc.PetShop.view.menu;
 
 import java.awt.Color;
 import java.awt.Dimension;
