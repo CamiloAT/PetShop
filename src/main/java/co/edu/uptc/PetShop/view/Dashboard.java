@@ -4,6 +4,14 @@ import javax.swing.*;
 import co.edu.uptc.PetShop.view.menu.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.util.List;
+
+import javax.swing.JFrame;
+
+import co.edu.uptc.PetShop.model.Pet;
 
 public class Dashboard extends JFrame {
 	private Toolkit toolkit;
@@ -31,7 +39,7 @@ public class Dashboard extends JFrame {
 		getContentPane().add(savePet);
 		deleteBook = new DeletePet(listener);
 		searchBook = new SearchBook(listener);
-		listBooks = new ListBooks();
+		listBooks = new ListBooks(listener);
 
 	}
 
@@ -87,4 +95,12 @@ public class Dashboard extends JFrame {
 	public void setMessage(String message) {
 		savePet.setMessage(message);
 	}
+	
+    public void fillListTable(List<Pet> pets) {
+    	listBooks.fillTable(pets);
+    }
+    
+    public String getCategoryList() {
+    	return listBooks.getCategoryList();
+    }
 }

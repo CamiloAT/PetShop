@@ -20,12 +20,6 @@ public class Pet {
     @Column
     private String category;
 
-    public Pet(String name, String category) {
-		super();
-		this.name = name;
-		this.category = category;
-	}
-
 	public Long getId() {
         return id;
     }
