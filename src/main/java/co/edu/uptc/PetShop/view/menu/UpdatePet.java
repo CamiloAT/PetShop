@@ -18,6 +18,7 @@ public class UpdatePet extends JPanel {
     private JLabel categoryPet;
     private JComboBox category;
     private ButtonDefault update;
+    private JLabel lblMessage;
 
     public UpdatePet(ActionListener listener) {
         setBackground(new Color(241, 239, 239));
@@ -68,6 +69,10 @@ public class UpdatePet extends JPanel {
         update.setActionCommand("update");
         update.addActionListener(listener);
         add(update,constraints);
+
+        constraints.gridy = 4;
+        lblMessage = new JLabel();
+        add(lblMessage, constraints);
     }
 
     public String getCategory() {
@@ -77,7 +82,9 @@ public class UpdatePet extends JPanel {
     public Long getInputId() {
         return Long.valueOf(inputId.getText());
     }
-
+    public void setMessage(String message) {
+        lblMessage.setText(message);
+    }
     public String getInputName() {
         return inputName.getText().toString();
     }

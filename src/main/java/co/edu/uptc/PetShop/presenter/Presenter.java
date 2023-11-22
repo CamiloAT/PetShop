@@ -66,12 +66,18 @@ public class Presenter implements ActionListener {
     }
 
     private void requestDetails() {
+        detailsRequest.setResponse("");
         detailsRequest.requestDetails(Long.valueOf(dashboard.getShowDetails().getIdPet()));
-        dashboard.showMessage(detailsRequest.getResponse());
+        if (!detailsRequest.getResponse().equals("")) {
+            dashboard.showMessage(detailsRequest.getResponse());
+        }else{
+            detailsRequest.setResponse("Mascota no Existe");
+            dashboard.showMessage(detailsRequest.getResponse());
+        }
     }
 
     public void requestUpdate() {
         updateRequest.requestUpdate(dashboard.getUpdatePet().getInputId(), dashboard.getUpdatePet().getInputName(), dashboard.getUpdatePet().getCategory());
-        dashboard.setMessage(updateRequest.getMessage());
+        dashboard.getUpdatePet().setMessage(updateRequest.getMessage());
     }
 }
